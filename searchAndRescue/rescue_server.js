@@ -16,7 +16,14 @@ var server = http.createServer(function (req, res) {
     var headers = req.headers;
 
     // Send the response on message route
-    res.end('Hello World\n');
+    // Read art file
+    var fs = require('fs');
+    fs.readFile('art.txt', 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        res.end(data);
+    });
 
     // Get post data
     if (req.method == 'POST') {
@@ -52,5 +59,5 @@ server.listen(8080, function () {
     console.log("The server is listening on port 8080 now");
 });
 
-// Path: index.js
+// Path: rescue_server.js
 // Simple exemple node server

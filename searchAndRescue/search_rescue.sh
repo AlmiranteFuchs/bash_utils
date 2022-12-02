@@ -43,8 +43,9 @@ file_content=$(cat $file_path)
 # Upload the file to the rescue server
 curl -i -k -X POST -H "Content-Type: application/json" --data "$file_content" http://$rescue_server:8080
 
-# Clear terminal
-#clear
+# Clear terminal after half a second
+sleep 0.5
+clear
 
 # Exit with success
 exit 0
